@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beruf wählen – Gehaltsangebot.de</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f7fb;
+      margin: 0;
+      color: #222;
+    }
+
+    header {
+      background-color: #005eb8;
+      padding: 20px 30px;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #003d7c;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 20px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn-next {
+      background-color: #0071ce;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .btn-next:hover {
+      background-color: #005ea6;
+    }
+
+    .progress {
+      margin-bottom: 30px;
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gehaltsangebot.de</h1>
+  </header>
+
+  <div class="container">
+    <div class="progress">Schritt 1 von 4</div>
+    <h2>Welchen Beruf möchtest du ausüben?</h2>
+
+    <label for="branche">Wähle eine Branche</label>
+    <select id="branche">
+      <option>Bitte wählen</option>
+      <option>Handwerk</option>
+      <option>Pflege & Gesundheit</option>
+      <option>IT & Software</option>
+      <option>Kaufmännisch</option>
+      <option>Luft- & Raumfahrt</option>
+      <option>Weitere Branchen...</option>
+    </select>
+
+    <label for="beruf">Oder gib direkt einen Beruf ein</label>
+    <input type="text" id="beruf" placeholder="z.B. Elektroniker, Fluglotse, Pflegefachkraft" />
+
+    <button class="btn-next" onclick="window.location.href='step-ort.html'">Weiter</button>
+  </div>
+</body>
+</html>
