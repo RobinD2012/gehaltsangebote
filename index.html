@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gehaltsangebot.de</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="intro-section">
+      <img src="logo.svg" alt="Gehaltsangebot.de Logo" class="logo" />
+
+      <h1>Anonym Marktwert prüfen<br>& Gehaltsangebote erhalten</h1>
+      <p class="subline">
+        In 6 Schritten zu deinem anonymen Gehaltsangebot<br>
+        – dauert weniger als 2 Minuten!
+      </p>
+
+      <a href="#" class="cta-button" onclick="startForm()">Hier Gehaltsangebote einholen</a>
+
+      <p class="privacy-note">
+        Deine Anfrage bleibt anonym<br>
+        Deine E-Mail-Adresse wird nicht weitergegeben<br>
+        An Werktagen erhältst du innerhalb von 48h Angebote
+      </p>
+    </div>
+
+    <!-- Formular -->
+    <div class="card" id="form-section" style="display: none;">
+      <form id="applicationForm" onsubmit="return false;">
+        
+        <!-- Step 1: Position -->
+        <div id="step-1" class="form-step">
+          <label for="jobTitle">Welche Position suchst du?</label>
+          <input type="text" id="jobTitle" required>
+          <div class="step-buttons">
+            <button type="button" onclick="nextStep(2)">Weiter</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Qualifikation -->
+        <div id="step-2" class="form-step" style="display: none;">
+          <label for="qualification">Was ist deine höchste Qualifikation?</label>
+          <select id="qualification" required>
+            <option value="">Bitte wählen</option>
+            <option>Berufsausbildung</option>
+            <option>Fachabitur</option>
+            <option>Bachelor</option>
+            <option>Master</option>
+            <option>Promotion</option>
+          </select>
+          <div class="step-buttons">
+            <button type="button" onclick="prevStep(1)">Zurück</button>
+            <button type="button" onclick="nextStep(3)">Weiter</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Berufserfahrung -->
+        <div id="step-3" class="form-step" style="display: none;">
+          <label for="experience">Wie viele Jahre Berufserfahrung hast du?</label>
+          <input type="number" id="experience" min="0" required>
+          <div class="step-buttons">
+            <button type="button" onclick="prevStep(2)">Zurück</button>
+            <button type="button" onclick="nextStep(4)">Weiter</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Arbeitsort + Umkreis -->
+        <div id="step-4" class="form-step" style="display: none;">
+          <label for="location">In welcher Stadt möchtest du arbeiten?</label>
+          <input type="text" id="location" required>
+
+          <label for="radius">Umkreis in km:</label>
+          <select id="radius" required>
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+            <option>100</option>
+            <option>Deutschlandweit</option>
+          </select>
+
+          <div class="step-buttons">
+            <button type="button" onclick="prevStep(3)">Zurück</button>
+            <button type="submit" onclick="showThankYou()">Abschicken</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Danke-Seite -->
+    <div class="card" id="thanks-section" style="display: none;">
+      <h2>Danke für deine Angaben!</h2>
+      <p>Wir prüfen jetzt deine Anfrage und melden uns in Kürze mit anonymen Angeboten.</p>
+    </div>
+  </div>
+
+  <script>
+    function startForm() {
+      document.getElementById("intro-section").style.display = "none";
+      document.getElementById("form-section").style.display = "block";
+    }
+
+    function nextStep(stepNumber) {
+      const current = document.querySelector(".form-step:not([style*='display: none'])");
+      if (current) current.style.display = "none";
+      const next = document.getElementById(`step-${stepNumber}`);
+      if (next) next.style.display = "block";
+    }
+
+    function prevStep(stepNumber) {
+      const current = document.querySelector(".form-step:not([style*='display: none'])`);
+      if (current) current.style.display = "none";
+      const previous = document.getElementById(`step-${stepNumber}`);
+      if (previous) previous.style.display = "block";
+    }
+
+    function showThankYou() {
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("thanks-section").style.display = "block";
+    }
+  </script>
+</body>
+</html>
