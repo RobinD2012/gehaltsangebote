@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gehaltsangebot.de</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <img src="logo-placeholder.png" alt="Gehaltsangebot Logo" class="logo" />
+    <h1>Finde heraus, was du wirklich verdienst</h1>
+    <p>Erhalte unverbindliche Gehaltsangebote direkt von Unternehmen – kostenlos & anonym!</p>
+    <button class="cta-button" onclick="startForm()">Hier Gehaltsangebote einholen</button>
+  </header>
+
+  <main id="form-section" style="display:none;">
+    <form id="bewerberForm">
+      <div class="form-step" id="step-1">
+        <label for="qualification">Welchen Bildungsabschluss hast du?</label>
+        <select id="qualification" required>
+          <option value="">Bitte wählen</option>
+          <option value="kein">Kein Abschluss</option>
+          <option value="haupt">Hauptschulabschluss</option>
+          <option value="real">Realschulabschluss</option>
+          <option value="abi">Abitur / Fachabi</option>
+          <option value="ausbildung">Berufsausbildung</option>
+          <option value="studium">Studium</option>
+        </select>
+        <div class="button-row">
+          <button type="button" onclick="nextStep(2)">Weiter</button>
+        </div>
+      </div>
+
+      <div class="form-step" id="step-2" style="display:none;">
+        <label for="beruf">Für welchen Beruf suchst du Gehaltsangebote?</label>
+        <input type="text" id="beruf" placeholder="z.B. Pflegefachkraft" required />
+        <div class="button-row">
+          <button type="button" onclick="prevStep(1)">Zurück</button>
+          <button type="button" onclick="nextStep(3)">Weiter</button>
+        </div>
+      </div>
+
+      <div class="form-step" id="step-3" style="display:none;">
+        <label for="ort">In welchem Ort möchtest du arbeiten?</label>
+        <input type="text" id="ort" placeholder="z.B. München" required />
+        <label for="radius">Umkreis (in km)</label>
+        <input type="number" id="radius" placeholder="z.B. 30" min="0" />
+        <div class="button-row">
+          <button type="button" onclick="prevStep(2)">Zurück</button>
+          <button type="button" onclick="nextStep(4)">Weiter</button>
+        </div>
+      </div>
+
+      <div class="form-step" id="step-4" style="display:none;">
+        <label for="erfahrung">Wie viel Berufserfahrung hast du?</label>
+        <select id="erfahrung" required>
+          <option value="">Bitte wählen</option>
+          <option value="keine">Keine</option>
+          <option value="1-2">1–2 Jahre</option>
+          <option value="3-5">3–5 Jahre</option>
+          <option value="5plus">Mehr als 5 Jahre</option>
+        </select>
+        <div class="button-row">
+          <button type="button" onclick="prevStep(3)">Zurück</button>
+          <button type="submit">Fertig</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Gehaltsangebot.de – Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script>
+    function startForm() {
+      document.querySelector('.hero').style.display = 'none';
+      document.getElementById('form-section').style.display = 'block';
+      nextStep(1);
+    }
+
+    function nextStep(step) {
+      document.querySelectorAll(".form-step").forEach(el => el.style.display = "none");
+      document.getElementById(`step-${step}`).style.display = "block";
+    }
+
+    function prevStep(step) {
+      nextStep(step);
+    }
+
+    document.getElementById("bewerberForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Vielen Dank! Deine Anfrage wurde übermittelt.");
+    });
+  </script>
+</body>
+</html>
