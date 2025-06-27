@@ -1,0 +1,86 @@
+/* Reset & Grundstruktur */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  background-color: #004b8d;
+  color: #fff;
+  padding: 40px 0 20px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.slogan {
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+/* Hauptbereich */
+.main-content {
+  margin-top: 30px;
+}
+
+.step-form h2 {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+.step-form input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #004b8d;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #00376a;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.footer a {
+  color: #004b8d;
+  text-decoration: none;
+  margin: 0 10px;
+}
