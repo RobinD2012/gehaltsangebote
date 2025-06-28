@@ -2,57 +2,128 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Beruf wählen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beruf eingeben – Gehaltsangebot.de</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 2em;
+      padding: 20px;
+      background-color: #f9f9f9;
     }
-    input, button {
-      padding: 10px;
-      margin-top: 10px;
-      font-size: 16px;
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
       width: 100%;
-      max-width: 400px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .autocomplete-suggestions {
+      border: 1px solid #ccc;
+      max-height: 150px;
+      overflow-y: auto;
+      background: #fff;
+      position: absolute;
+      width: calc(100% - 42px);
+      z-index: 1000;
+      margin-top: -10px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .autocomplete-suggestions div {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .autocomplete-suggestions div:hover {
+      background-color: #eee;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0071ce;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
     }
   </style>
 </head>
 <body>
-
-  <h1>Welchen Beruf übst du aus?</h1>
-
-  <form onsubmit="handleSubmit(); return false;">
-    <input list="berufe" id="berufInput" placeholder="z. B. Mechatroniker" required />
-    <datalist id="berufe">
-      <option value="Mechatroniker">
-      <option value="Bürokaufmann/-frau">
-      <option value="Fachinformatiker/in">
-      <option value="Pflegefachkraft">
-      <option value="Verkäufer/in">
-      <option value="Erzieher/in">
-      <option value="Maurer/in">
-      <option value="Zahnarzthelfer/in">
-      <option value="Koch/Köchin">
-      <option value="Produktionshelfer/in">
-    </datalist>
-    <button type="submit">Weiter</button>
-  </form>
+  <div class="container">
+    <h1>Welchen Beruf übst du aus?</h1>
+    <form action="step-ort.html" method="get" onsubmit="return prepareForm()">
+      <input type="text" id="berufInput" name="beruf" placeholder="Berufsbezeichnung" autocomplete="off">
+      <div id="suggestions" class="autocomplete-suggestions"></div>
+      <button type="submit">Weiter</button>
+    </form>
+  </div>
 
   <script>
-    function handleSubmit() {
-      const beruf = document.getElementById('berufInput').value;
-      if (beruf.trim() === '') {
-        alert('Bitte wähle einen Beruf aus.');
-        return;
+    const berufe = [
+      "Altenpfleger/in", "Anwendungsentwickler/in", "Apotheker/in", "Arzthelfer/in", "Bauleiter/in", "Betriebswirt/in",
+      "Buchhalter/in", "Data Scientist", "Erzieher/in", "Fachinformatiker/in", "Finanzberater/in", "Frontend-Entwickler/in",
+      "Gesundheits- und Krankenpfleger/in", "Ingenieur/in", "IT-Administrator/in", "Jurist/in", "Kaufmann/-frau für Büromanagement",
+      "Kinderpfleger/in", "Lagerist/in", "Marketing-Manager/in", "Mechatroniker/in", "Pädagoge/in", "Pflegefachkraft",
+      "Polizist/in", "Produktmanager/in", "Projektmanager/in", "Psychologe/in", "Softwareentwickler/in", "Steuerfachangestellte/r",
+      "Techniker/in", "Verkäufer/in", "Wirtschaftsinformatiker/in", "Zahnarzthelfer/in"
+    ];
+
+    const input = document.getElementById('berufInput');
+    const suggestions = document.getElementById('suggestions');
+
+    input.addEventListener('input', () => {
+      const value = input.value.toLowerCase();
+      suggestions.innerHTML = '';
+
+      if (value.length === 0) return;
+
+      const filtered = berufe.filter(beruf => beruf.toLowerCase().includes(value));
+      filtered.forEach(match => {
+        const div = document.createElement('div');
+        div.textContent = match;
+        div.onclick = () => {
+          input.value = match;
+          suggestions.innerHTML = '';
+        };
+        suggestions.appendChild(div);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (e.target !== input) suggestions.innerHTML = '';
+    });
+
+    function prepareForm() {
+      if (!berufe.includes(input.value)) {
+        alert("Bitte wähle einen Beruf aus der Liste.");
+        return false;
       }
-
-      // Im localStorage speichern (später abrufbar auf anderen Seiten)
-      localStorage.setItem('beruf', beruf);
-
-      // Zur nächsten Seite weiterleiten
-      window.location.href = 'step-qualifikation.html';
+      return true;
     }
   </script>
-
 </body>
 </html>
