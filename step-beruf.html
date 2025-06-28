@@ -1,97 +1,58 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dein Beruf – Gehaltsangebot.de</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Beruf wählen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <img src="logo.png" alt="Gehaltsangebot Logo" class="logo">
-  </header>
 
-  <main class="form-step">
-    <div class="container">
-      <h1>Welchen Beruf übst du aus?</h1>
+  <h1>Welchen Beruf übst du aus?</h1>
 
-      <form action="step-standort.html">
-        <label for="beruf">Bitte wähle deinen Beruf:</label>
-        <input list="berufe" id="beruf" name="beruf" placeholder="Beruf eingeben" required>
+  <form onsubmit="handleSubmit(); return false;">
+    <input list="berufe" id="berufInput" placeholder="z. B. Mechatroniker" required />
+    <datalist id="berufe">
+      <option value="Mechatroniker">
+      <option value="Bürokaufmann/-frau">
+      <option value="Fachinformatiker/in">
+      <option value="Pflegefachkraft">
+      <option value="Verkäufer/in">
+      <option value="Erzieher/in">
+      <option value="Maurer/in">
+      <option value="Zahnarzthelfer/in">
+      <option value="Koch/Köchin">
+      <option value="Produktionshelfer/in">
+    </datalist>
+    <button type="submit">Weiter</button>
+  </form>
 
-        <datalist id="berufe">
-          <option value="Altenpfleger/in">
-          <option value="Anlagenmechaniker/in">
-          <option value="Arzthelfer/in">
-          <option value="Augenoptiker/in">
-          <option value="Bankkaufmann/-frau">
-          <option value="Bauzeichner/in">
-          <option value="Bürokaufmann/-frau">
-          <option value="Chemikant/in">
-          <option value="Dachdecker/in">
-          <option value="Datenschutzbeauftragte/r">
-          <option value="Designer/in">
-          <option value="Elektroniker/in">
-          <option value="Erzieher/in">
-          <option value="Fachinformatiker/in">
-          <option value="Fahrzeuglackierer/in">
-          <option value="Finanzbuchhalter/in">
-          <option value="Friseur/in">
-          <option value="Gärtner/in">
-          <option value="Gebäudereiniger/in">
-          <option value="Gesundheits- und Krankenpfleger/in">
-          <option value="Heilerziehungspfleger/in">
-          <option value="Immobilienkaufmann/-frau">
-          <option value="Industriemechaniker/in">
-          <option value="IT-Systemelektroniker/in">
-          <option value="Kaufmann/-frau im Einzelhandel">
-          <option value="Kaufmann/-frau für Büromanagement">
-          <option value="Kindergärtner/in">
-          <option value="Koch/Köchin">
-          <option value="Lagerist/in">
-          <option value="Logopäde/Logopädin">
-          <option value="Lohnbuchhalter/in">
-          <option value="Maler/in und Lackierer/in">
-          <option value="Marketingmanager/in">
-          <option value="Maurer/in">
-          <option value="Mechatroniker/in">
-          <option value="Mediengestalter/in">
-          <option value="Medizinische/r Fachangestellte/r">
-          <option value="Metallbauer/in">
-          <option value="Notarfachangestellte/r">
-          <option value="Pflegehelfer/in">
-          <option value="Pharmazeutisch-technische/r Assistent/in">
-          <option value="Polizist/in">
-          <option value="Programmierer/in">
-          <option value="Psychologe/in">
-          <option value="Rechtsanwaltsfachangestellte/r">
-          <option value="Reinigungskraft">
-          <option value="Schreiner/in">
-          <option value="Softwareentwickler/in">
-          <option value="Sozialarbeiter/in">
-          <option value="Steuerfachangestellte/r">
-          <option value="Systemadministrator/in">
-          <option value="Tischler/in">
-          <option value="Verkäufer/in">
-          <option value="Verwaltungsfachangestellte/r">
-          <option value="Webdesigner/in">
-          <option value="Wirtschaftsprüfer/in">
-          <option value="Zahnarzthelfer/in">
-          <option value="Zerspanungsmechaniker/in">
-        </datalist>
+  <script>
+    function handleSubmit() {
+      const beruf = document.getElementById('berufInput').value;
+      if (beruf.trim() === '') {
+        alert('Bitte wähle einen Beruf aus.');
+        return;
+      }
 
-        <br><br>
-        <button type="submit">Weiter</button>
-      </form>
+      // Im localStorage speichern (später abrufbar auf anderen Seiten)
+      localStorage.setItem('beruf', beruf);
 
-      <a href="index.html" class="back-button">Zurück zur Startseite</a>
-    </div>
-  </main>
+      // Zur nächsten Seite weiterleiten
+      window.location.href = 'step-qualifikation.html';
+    }
+  </script>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Gehaltsangebot.de</p>
-    </div>
-  </footer>
 </body>
 </html>
