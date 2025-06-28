@@ -3,103 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Beruf wählen – Gehaltsangebot.de</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f4f7fb;
-      margin: 0;
-      color: #222;
-    }
-
-    header {
-      background-color: #005eb8;
-      padding: 20px 30px;
-      color: white;
-      display: flex;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      font-size: 26px;
-      color: #003d7c;
-      margin-bottom: 20px;
-    }
-
-    label {
-      font-weight: 600;
-      margin-top: 20px;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    select, input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .btn-next {
-      background-color: #0071ce;
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      float: right;
-    }
-
-    .btn-next:hover {
-      background-color: #005ea6;
-    }
-
-    .progress {
-      margin-bottom: 30px;
-      color: #555;
-      font-size: 14px;
-    }
-  </style>
+  <title>Dein Beruf – Gehaltsangebot.de</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Gehaltsangebot.de</h1>
+  <header class="header">
+    <img src="logo.png" alt="Gehaltsangebot Logo" class="logo">
   </header>
 
-  <div class="container">
-    <div class="progress">Schritt 1 von 4</div>
-    <h2>Welchen Beruf möchtest du ausüben?</h2>
+  <main class="form-step">
+    <div class="container">
+      <h1>Welchen Beruf übst du aus?</h1>
 
-    <label for="branche">Wähle eine Branche</label>
-    <select id="branche">
-      <option>Bitte wählen</option>
-      <option>Handwerk</option>
-      <option>Pflege & Gesundheit</option>
-      <option>IT & Software</option>
-      <option>Kaufmännisch</option>
-      <option>Luft- & Raumfahrt</option>
-      <option>Weitere Branchen...</option>
-    </select>
+      <form action="step-standort.html" method="post">
+        <label for="beruf">Bitte wähle deinen Beruf:</label>
+        <input list="berufe" id="beruf" name="beruf" placeholder="Beruf eingeben" required>
 
-    <label for="beruf">Oder gib direkt einen Beruf ein</label>
-    <input type="text" id="beruf" placeholder="z.B. Elektroniker, Fluglotse, Pflegefachkraft" />
+        <datalist id="berufe">
+          <option value="Altenpfleger/in">
+          <option value="Anlagenmechaniker/in">
+          <option value="Arzthelfer/in">
+          <option value="Augenoptiker/in">
+          <option value="Bankkaufmann/-frau">
+          <option value="Bauzeichner/in">
+          <option value="Bürokaufmann/-frau">
+          <option value="Chemikant/in">
+          <option value="Dachdecker/in">
+          <option value="Datenschutzbeauftragte/r">
+          <option value="Designer/in">
+          <option value="Elektroniker/in">
+          <option value="Erzieher/in">
+          <option value="Fachinformatiker/in">
+          <option value="Fahrzeuglackierer/in">
+          <option value="Finanzbuchhalter/in">
+          <option value="Friseur/in">
+          <option value="Gärtner/in">
+          <option value="Gebäudereiniger/in">
+          <option value="Gesundheits- und Krankenpfleger/in">
+          <option value="Heilerziehungspfleger/in">
+          <option value="Immobilienkaufmann/-frau">
+          <option value="Industriemechaniker/in">
+          <option value="IT-Systemelektroniker/in">
+          <option value="Kaufmann/-frau im Einzelhandel">
+          <option value="Kaufmann/-frau für Büromanagement">
+          <option value="Kindergärtner/in">
+          <option value="Koch/Köchin">
+          <option value="Lagerist/in">
+          <option value="Logopäde/Logopädin">
+          <option value="Lohnbuchhalter/in">
+          <option value="Maler/in und Lackierer/in">
+          <option value="Marketingmanager/in">
+          <option value="Maurer/in">
+          <option value="Mechatroniker/in">
+          <option value="Mediengestalter/in">
+          <option value="Medizinische/r Fachangestellte/r">
+          <option value="Metallbauer/in">
+          <option value="Notarfachangestellte/r">
+          <option value="Pflegehelfer/in">
+          <option value="Pharmazeutisch-technische/r Assistent/in">
+          <option value="Polizist/in">
+          <option value="Programmierer/in">
+          <option value="Psychologe/in">
+          <option value="Rechtsanwaltsfachangestellte/r">
+          <option value="Reinigungskraft">
+          <option value="Schreiner/in">
+          <option value="Softwareentwickler/in">
+          <option value="Sozialarbeiter/in">
+          <option value="Steuerfachangestellte/r">
+          <option value="Systemadministrator/in">
+          <option value="Tischler/in">
+          <option value="Verkäufer/in">
+          <option value="Verwaltungsfachangestellte/r">
+          <option value="Webdesigner/in">
+          <option value="Wirtschaftsprüfer/in">
+          <option value="Zahnarzthelfer/in">
+          <option value="Zerspanungsmechaniker/in">
+        </datalist>
 
-    <button class="btn-next" onclick="window.location.href='step-ort.html'">Weiter</button>
-  </div>
+        <br><br>
+        <button type="submit">Weiter</button>
+      </form>
+
+      <a href="index.html" class="back-button">Zurück zur Startseite</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Gehaltsangebot.de</p>
+    </div>
+  </footer>
 </body>
 </html>
