@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>E-Mail Eingabe – Gehaltsangebot.de</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Schritt 5 – E-Mail-Adresse</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="step-container">
-    <h2>Fast geschafft!</h2>
-    <p>Bitte gib deine E-Mail-Adresse ein, um deine Gehaltsangebote zu erhalten.</p>
-    <form id="emailForm" action="danke.html" method="GET">
-      <label for="email">E-Mail-Adresse:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="dein@email.de"
-        required
-      />
-      <button type="submit">Weiter zu deinen Angeboten</button>
+  <main>
+    <h2>Fast geschafft! Bitte gib deine E-Mail-Adresse ein</h2>
+    <form action="danke.html" method="get">
+      <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
+      <div class="nav-buttons">
+        <a href="step-erfahrung.html" class="back-button">Zurück</a>
+        <button type="submit" class="next-button">Gehaltsangebote anzeigen</button>
+      </div>
     </form>
-  </div>
+  </main>
 </body>
 </html>
