@@ -88,3 +88,12 @@ input[type="email"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.company-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+.company-link a {
+  color: #0056b3;
+  text-decoration: underline;
+}
