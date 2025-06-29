@@ -97,3 +97,67 @@ input[type="email"] {
   color: #0056b3;
   text-decoration: underline;
 }
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #003366;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="tel"],
+.form-container input[type="url"],
+.form-container select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.form-container .checkbox-group {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form-container button {
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #005fa3;
+}
+
+.form-container a {
+  color: #007acc;
+  text-decoration: none;
+}
