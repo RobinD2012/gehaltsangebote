@@ -53,3 +53,29 @@ input, select {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Mail Eingabe – Gehaltsangebot.de</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="step-container">
+    <h2>Fast geschafft!</h2>
+    <p>Bitte gib deine E-Mail-Adresse ein, um deine Gehaltsangebote zu erhalten.</p>
+    <form id="emailForm" action="danke.html" method="GET">
+      <label for="email">E-Mail-Adresse:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="dein@email.de"
+        required
+      />
+      <button type="submit">Weiter zu deinen Angeboten</button>
+    </form>
+  </div>
+</body>
+</html>
