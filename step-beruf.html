@@ -1,47 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beruf eingeben – Gehaltsangebot.de</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f9f9f9;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
     .autocomplete-suggestions {
       border: 1px solid #ccc;
       max-height: 150px;
       overflow-y: auto;
       background: #fff;
       position: absolute;
-      width: calc(100% - 42px);
+      width: calc(100% - 40px);
       z-index: 1000;
       margin-top: -10px;
       border-radius: 0 0 5px 5px;
@@ -55,30 +26,15 @@
     .autocomplete-suggestions div:hover {
       background-color: #eee;
     }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #0071ce;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #005fa3;
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welchen Beruf übst du aus?</h1>
+  <div class="form-container">
+    <h2>Welchen Beruf übst du aus?</h2>
     <form action="step-ort.html" method="get" onsubmit="return prepareForm()">
-      <input type="text" id="berufInput" name="beruf" placeholder="Berufsbezeichnung" autocomplete="off">
+      <input type="text" id="berufInput" name="beruf" placeholder="Berufsbezeichnung" autocomplete="off" required />
       <div id="suggestions" class="autocomplete-suggestions"></div>
-      <button type="submit">Weiter</button>
+      <button type="submit" class="next-button">Weiter</button>
     </form>
   </div>
 
