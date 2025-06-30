@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Neue Bewerbersuche</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="unternehmen-dashboard.html">Dashboard</a></li>
+      <li><a href="unternehmen-bewerber.html">Bewerberanfragen</a></li>
+      <li><a href="unternehmen-suche.html" class="active">Neue Suche</a></li>
+      <li><a href="unternehmen-ausschreibungen.html">Meine Ausschreibungen</a></li>
+      <li><a href="unternehmen-profil.html">Profil</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Neue Bewerbersuche anlegen</h1>
+    <form>
+      <label>Berufsbezeichnung</label>
+      <input type="text" name="beruf">
+
+      <label>Gesuchte Qualifikationen (Mehrfachauswahl möglich)</label>
+      <select multiple name="qualifikationen[]">
+        <option>Meisterbrief</option>
+        <option>Studium Bauingenieurwesen</option>
+        <option>Techniker</option>
+        <option>Keine Qualifikation erforderlich</option>
+      </select>
+
+      <button type="submit">Suche speichern</button>
+    </form>
+  </main>
+</body>
+</html>
