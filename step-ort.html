@@ -4,12 +4,37 @@
   <meta charset="UTF-8">
   <title>Schritt 2 – Arbeitsort</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .autocomplete-list {
+      position: absolute;
+      background-color: white;
+      border: 1px solid #ccc;
+      max-height: 200px;
+      overflow-y: auto;
+      width: 100%;
+      z-index: 10;
+      border-radius: 0 0 5px 5px;
+    }
+    .autocomplete-item {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .autocomplete-item:hover {
+      background-color: #eee;
+    }
+    .autocomplete-wrapper {
+      position: relative;
+    }
+  </style>
 </head>
 <body>
   <main>
     <h2>Wo suchst du nach einem Job?</h2>
-    <form action="step-qualifikation.html" method="get">
-      <input type="text" placeholder="z. B. Berlin, München…" required>
+    <form id="ortForm" action="step-qualifikation.html" method="get" onsubmit="return validateOrt()">
+      <div class="autocomplete-wrapper">
+        <input type="text" id="ortInput" name="ort" placeholder="z. B. 10115 Berlin oder München" required autocomplete="off">
+        <div id="autocomplete-list" class="autocomplete-list"></div>
+      </div>
       <label for="radius">Umkreis in km:</label>
       <select id="radius" name="radius">
         <option value="10">10 km</option>
@@ -23,5 +48,50 @@
       </div>
     </form>
   </main>
+
+  <script>
+    const ortInput = document.getElementById("ortInput");
+    const listContainer = document.getElementById("autocomplete-list");
+
+    // Beispiel-Ortsliste (du kannst sie beliebig erweitern)
+    const orte = [
+      "10115 Berlin", "20095 Hamburg", "50667 Köln", "80331 München",
+      "70173 Stuttgart", "01067 Dresden", "04109 Leipzig", "90402 Nürnberg",
+      "60549 Frankfurt am Main", "30159 Hannover", "28195 Bremen", "55116 Mainz",
+      "68159 Mannheim", "93047 Regensburg", "44135 Dortmund", "39104 Magdeburg",
+      "99084 Erfurt"
+    ];
+
+    ortInput.addEventListener("input", function () {
+      const value = this.value.toLowerCase();
+      listContainer.innerHTML = "";
+      if (!value) return;
+
+      const matches = orte.filter(o => o.toLowerCase().includes(value));
+      matches.forEach(match => {
+        const item = document.createElement("div");
+        item.textContent = match;
+        item.classList.add("autocomplete-item");
+        item.onclick = () => {
+          ortInput.value = match;
+          listContainer.innerHTML = "";
+        };
+        listContainer.appendChild(item);
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (e.target !== ortInput) listContainer.innerHTML = "";
+    });
+
+    function validateOrt() {
+      const entered = ortInput.value.trim();
+      if (!orte.includes(entered)) {
+        alert("Bitte wähle einen gültigen Ort aus der Liste.");
+        return false;
+      }
+      return true;
+    }
+  </script>
 </body>
 </html>
