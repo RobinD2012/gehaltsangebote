@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Schritt 3 – Qualifikation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main>
-    <h2>Welche Qualifikation bringst du mit?</h2>
-    <form action="step-erfahrung.html" method="get">
-      <select required>
+    <h2>Welche Qualifikation hast du?</h2>
+    <form action="step-berufserfahrung.html" method="get">
+      
+      <label for="qualifikation">Allgemeiner Abschluss:</label>
+      <select name="qualifikation" id="qualifikation" required>
         <option value="">Bitte auswählen…</option>
-        <option value="ausbildung">Abgeschlossene Ausbildung</option>
-        <option value="meister">Meister / Fachwirt</option>
-        <option value="studium">Studium (BA/MA/Diplom)</option>
-        <option value="ohne">Noch keine Qualifikation</option>
+        <option value="ohneAbschluss">Kein Abschluss</option>
+        <option value="ausbildung">Ausbildung</option>
+        <option value="meisterTechniker">Meister / Techniker</option>
+        <option value="fachwirt">Fachwirt</option>
+        <option value="bachelor">Bachelor</option>
+        <option value="master">Master</option>
+        <option value="diplom">Diplom</option>
+        <option value="promotion">Promotion</option>
       </select>
+
+      <label for="abschlussText">Welcher Abschluss genau?</label>
+      <input 
+        type="text" 
+        id="abschlussText" 
+        name="abschlussText" 
+        placeholder="z. B. Bachelor Bauingenieurwesen" 
+        required
+      />
+
       <div class="nav-buttons">
         <a href="step-ort.html" class="back-button">Zurück</a>
         <button type="submit" class="next-button">Weiter</button>
