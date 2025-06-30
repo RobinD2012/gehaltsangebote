@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Schritt 3 – Qualifikation</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
     <h2>Welche Qualifikation hast du?</h2>
-    <form action="step-berufserfahrung.html" method="get">
-      
-      <label for="qualifikation">Allgemeiner Abschluss:</label>
-      <select name="qualifikation" id="qualifikation" required>
+    <form action="step-berufserfahrung.html" method="get" onsubmit="return validateForm()">
+      <label for="abschluss">Abschluss:</label>
+      <select id="abschluss" name="abschluss" required onchange="toggleGenauerAbschluss()">
         <option value="">Bitte auswählen…</option>
-        <option value="ohneAbschluss">Kein Abschluss</option>
-        <option value="ausbildung">Ausbildung</option>
-        <option value="meisterTechniker">Meister / Techniker</option>
-        <option value="fachwirt">Fachwirt</option>
+        <option value="kein">Kein Abschluss</option>
+        <option value="ausbildung">Berufsausbildung</option>
+        <option value="meister">Meister / Techniker</option>
         <option value="bachelor">Bachelor</option>
         <option value="master">Master</option>
         <option value="diplom">Diplom</option>
-        <option value="promotion">Promotion</option>
       </select>
 
-      <label for="abschlussText">Welcher Abschluss genau?</label>
-      <input 
-        type="text" 
-        id="abschlussText" 
-        name="abschlussText" 
-        placeholder="z. B. Bachelor Bauingenieurwesen" 
-        required
-      />
+      <label for="genauerAbschluss">Genauer Abschluss:</label>
+      <input type="text" id="genauerAbschluss" name="genauerAbschluss" placeholder="z. B. Bachelor Bauingenieurwesen">
 
       <div class="nav-buttons">
         <a href="step-ort.html" class="back-button">Zurück</a>
@@ -38,5 +29,30 @@
       </div>
     </form>
   </main>
+
+  <script>
+    function toggleGenauerAbschluss() {
+      const abschluss = document.getElementById("abschluss").value;
+      const feld = document.getElementById("genauerAbschluss");
+
+      if (abschluss === "kein") {
+        feld.removeAttribute("required");
+      } else {
+        feld.setAttribute("required", "true");
+      }
+    }
+
+    function validateForm() {
+      const abschluss = document.getElementById("abschluss").value;
+      const genauer = document.getElementById("genauerAbschluss").value.trim();
+
+      if (abschluss !== "kein" && genauer === "") {
+        alert("Bitte gib deinen genauen Abschluss an.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
 </body>
 </html>
