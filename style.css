@@ -215,3 +215,24 @@ input[type="email"] {
 .form-container a:hover {
   text-decoration: underline;
 }
+.dashboard {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.dashboard h2 {
+  margin-bottom: 20px;
+}
+
+.dashboard-box {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 6px;
+  text-align: left;
+}
