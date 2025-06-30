@@ -1,40 +1,95 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gehaltsangebot.de – Jetzt Angebote einholen</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gehaltsangebot.de – Starte jetzt</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero-box {
+      background-color: #ffffff;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin: 2em auto;
+    }
+
+    .logo {
+      max-width: 100px;
+      margin: 0 auto 1em;
+      display: block;
+    }
+
+    .cta-button {
+      background-color: #0074D9;
+      color: white;
+      font-weight: bold;
+      padding: 0.8em 1.5em;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1em;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .info-points {
+      text-align: left;
+      margin-top: 2em;
+    }
+
+    .info-points li {
+      margin-bottom: 0.5em;
+    }
+
+    .business-link-box {
+      max-width: 600px;
+      margin: 1em auto;
+      padding: 1.2em;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .business-link-box a {
+      color: #0056b3;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 2em;
+    }
+  </style>
 </head>
 <body>
-</header>
-  <header class="hero">
-    <div class="container">
-      <img src="4E90E04E-D29E-4FA5-B4B1-C357CB0664CD.png" alt="Gehaltsangebot Logo" class="logo">
-      <p>Erhalte dein persönliches Gehaltsangebot – anonym, kostenlos & schnell.</p>
-      <a href="step-beruf.html" class="cta-button">Jetzt Gehaltsangebote einholen</a>
-      <p class="company-link">
-  <a href="unternehmen.html">Ich bin ein Unternehmen und auf der Suche nach Bewerbern</a>
-</p>
-    </div>
-  </header>
 
-  <main class="features">
-    <div class="container">
-      <h2>So funktioniert’s</h2>
-      <ul>
-        <li><strong>1.</strong> Beruf & Standort eingeben</li>
-        <li><strong>2.</strong> Anonym bleiben – keine E-Mail nötig</li>
-        <li><strong>3.</strong> Unternehmen senden Angebote direkt an dich</li>
-      </ul>
-    </div>
-  </main>
+  <div class="hero-box">
+    <img src="logo.png" alt="Gehaltsangebot.de Logo" class="logo" />
+    <h2>Erhalte dein persönliches Gehaltsangebot – anonym, kostenlos & schnell.</h2>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Gehaltsangebot.de – Alle Rechte vorbehalten</p>
-      <a href="agb.html">AGB</a> · <a href="datenschutz.html">Datenschutz</a>
-    </div>
+    <a href="step-beruf.html" class="cta-button">Jetzt Gehaltsangebote einholen</a>
+
+    <ul class="info-points">
+      <li><strong>1.</strong> Beruf & Standort eingeben</li>
+      <li><strong>2.</strong> Anonym bleiben – keine E-Mail nötig</li>
+      <li><strong>3.</strong> Unternehmen senden Angebote direkt an dich</li>
+    </ul>
+  </div>
+
+  <div class="business-link-box">
+    <p><a href="unternehmen.html">Ich bin ein Unternehmen und auf der Suche nach Bewerbern</a></p>
+  </div>
+
+  <footer>
+    © 2025 Gehaltsangebot.de – Alle Rechte vorbehalten
   </footer>
+
 </body>
 </html>
