@@ -1,90 +1,87 @@
-CREATE TABLE IF NOT EXISTS berufe (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  beruf VARCHAR(255) NOT NULL
-);
+<?php
+// Datenbankverbindung
+$host = "db5018128795.hosting-data.io";
+$user = "dbu3489304";
+$pass = "Bautechniker21!";
+$dbname = "dbs14385567";
 
-INSERT INTO berufe (beruf) VALUES
-('Altenpfleger/in'),
-('Anlagenmechaniker/in für Sanitär-, Heizungs- und Klimatechnik'),
-('Architekt/in'),
-('Augenoptiker/in'),
-('Bankkaufmann/-frau'),
-('Bauingenieur/in'),
-('Bauzeichner/in'),
-('Betriebswirt/in'),
-('Bodenleger/in'),
-('Buchhalter/in'),
-('Chemikant/in'),
-('Chemielaborant/in'),
-('Dachdecker/in'),
-('Datenschutzbeauftragte/r'),
-('Diplom-Finanzwirt/in'),
-('Drogist/in'),
-('E-Commerce-Kaufmann/-frau'),
-('Energieberater/in'),
-('Ergotherapeut/in'),
-('Erzieher/in'),
-('Fachinformatiker/in'),
-('Fahrzeuglackierer/in'),
-('Fertigungsmechaniker/in'),
-('Finanzberater/in'),
-('Fliesen-, Platten- und Mosaikleger/in'),
-('Florist/in'),
-('Fotograf/in'),
-('Friseur/in'),
-('Gebäudereiniger/in'),
-('Gärtner/in'),
-('Gesundheits- und Krankenpfleger/in'),
-('Grafikdesigner/in'),
-('Groß- und Außenhandelskaufmann/-frau'),
-('Hausmeister/in'),
-('Heilerziehungspfleger/in'),
-('Hotelkaufmann/-frau'),
-('Hotelfachmann/-frau'),
-('Immobilienkaufmann/-frau'),
-('Industriemechaniker/in'),
-('Informatikkaufmann/-frau'),
-('Ingenieur/in'),
-('IT-System-Elektroniker/in'),
-('Kälteanlagenbauer/in'),
-('Karosserie- und Fahrzeugbaumechaniker/in'),
-('Kaufmann/-frau für Büromanagement'),
-('Kaufmann/-frau im Einzelhandel'),
-('Kfz-Mechatroniker/in'),
-('Koch/Köchin'),
-('Krankenhausmanager/in'),
-('Landschaftsarchitekt/in'),
-('Logopäde/Logopädin'),
-('Maler/in und Lackierer/in'),
-('Marketingmanager/in'),
-('Maschinenbauingenieur/in'),
-('Maurer/in'),
-('Mediengestalter/in'),
-('Medizinisch-technische/r Assistent/in'),
-('Mechatroniker/in'),
-('Notarfachangestellte/r'),
-('Operationstechnische/r Assistent/in'),
-('Pflegefachmann/-frau'),
-('Pharmazeutisch-technische/r Assistent/in'),
-('Physiotherapeut/in'),
-('Polizist/in'),
-('Produktdesigner/in'),
-('Programmierer/in'),
-('Rechtsanwaltsfachangestellte/r'),
-('Reinigungskraft'),
-('Sanitärinstallateur/in'),
-('Sozialarbeiter/in'),
-('Speditionskaufmann/-frau'),
-('Steuerfachangestellte/r'),
-('Systemadministrator/in'),
-('Tiefbaufacharbeiter/in'),
-('Tiermedizinische/r Fachangestellte/r'),
-('Tischler/in'),
-('Verkäufer/in'),
-('Versicherungskaufmann/-frau'),
-('Verwaltungsfachangestellte/r'),
-('Wirtschaftsingenieur/in'),
-('Zahnarzthelfer/in'),
-('Zerspanungsmechaniker/in');
+$conn = new mysqli($host, $user, $pass, $dbname);
+if ($conn->connect_error) {
+  die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+}
 
--- Du kannst weitere Berufe bei Bedarf ergänzen.
+$berufe = [];
+$sql = "SELECT name FROM berufe ORDER BY name ASC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $berufe[] = $row["name"];
+  }
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Schritt 1 – Beruf auswählen</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      max-width: 600px;
+      margin: 2em auto;
+      padding: 2em;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+    select, button {
+      width: 100%;
+      padding: 0.8em;
+      font-size: 1em;
+      margin-top: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .nav-buttons {
+      margin-top: 2em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .next-button {
+      background-color: #0074D9;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .back-button {
+      text-decoration: none;
+      color: #0074D9;
+      font-weight: bold;
+      padding: 0.8em;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>Welchen Beruf übst du aus?</h2>
+    <form action="step-ort.html" method="get">
+      <label for="beruf">Bitte wähle deinen Beruf:</label>
+      <select id="beruf" name="beruf" required>
+        <option value="">Bitte auswählen</option>
+        <?php foreach ($berufe as $beruf): ?>
+          <option value="<?= htmlspecialchars($beruf) ?>"><?= htmlspecialchars($beruf) ?></option>
+        <?php endforeach; ?>
+      </select>
+      <div class="nav-buttons">
+        <a href="index.html" class="back-button">Zurück</a>
+        <button type="submit" class="next-button">Weiter</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
