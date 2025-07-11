@@ -1,174 +1,93 @@
-/* Basis */
 body {
-  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
   margin: 0;
-  background: #f5f7fa;
-  color: #002f6c;
-  text-align: center;
-  padding: 1.5em;
+  font-family: 'Inter', sans-serif;
+  background-color: #fefefe;
+  color: #222;
 }
 
-main, header, .form-container, .step-container, .dashboard {
-  max-width: 600px;
-  margin: auto;
-  background: #fff;
-  padding: 2em;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Logo */
-.logo {
-  max-width: 100px;
-  margin-bottom: 1em;
+header {
+  background-color: #ffffff;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
 }
 
-/* Buttons */
-button,
-.cta-button,
-.next-button,
-.back-button,
-.option-button {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  padding: 14px;
-  margin: 12px 0;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  background-color: white;
-  color: #007c91;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
+header .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2b2b2b;
 }
 
-button:hover,
-.cta-button:hover,
-.next-button:hover,
-.back-button:hover,
-.option-button:hover {
-  background-color: #eefaff;
-  border-color: #007c91;
-}
-
-/* Navigation Buttons */
-.nav-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-@media (min-width: 480px) {
-  .nav-buttons {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.back-button {
-  background-color: #ccc;
-  color: #333;
-}
-
-.next-button {
-  background-color: #007c91;
-  color: #fff;
-  border: none;
-}
-
-/* Formularelemente */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-input[type="url"],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-label {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 4px;
-  font-weight: bold;
-  text-align: left;
-}
-
-/* E-Mail Eingabe extra */
-input[type="email"] {
-  max-width: 400px;
-  margin: 20px auto;
-}
-
-/* Unternehmensbereich */
-.dashboard {
-  text-align: left;
-}
-
-.dashboard-box {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f0f4f8;
-  border-radius: 8px;
-}
-
-/* Menü */
 nav {
-  background: #f0f0f0;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-nav ul {
-  list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 nav a {
   text-decoration: none;
-  color: #007c91;
+  color: #444;
   font-weight: 500;
-  padding: 8px 12px;
-  border-radius: 8px;
 }
 
-nav a.active {
-  font-weight: bold;
-  background: #e6f7ff;
+.btn-header {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
 }
 
-/* Checkbox-Gruppe */
-.checkbox-group {
+.hero {
+  background: linear-gradient(to right, #fdfdfd, #fafafa);
+  padding: 4rem 0;
+}
+
+.hero-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Firmenlink */
-.company-link {
+.hero-text {
+  flex: 1 1 50%;
+  padding-right: 2rem;
+}
+
+.hero-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+}
+
+footer {
   text-align: center;
-  margin-top: 20px;
-  font-size: 1rem;
-}
-
-.company-link a {
-  color: #0056b3;
-  text-decoration: underline;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
+  color: #888;
 }
