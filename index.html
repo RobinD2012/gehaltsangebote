@@ -2,21 +2,149 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>paymaxed – Gehaltsangebote vergleichen</title>
-  <link rel="stylesheet" href="style.css">
+  <title>MeinGehaltsvergleich.de</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      padding: 2em 1em;
+      text-align: center;
+      background-color: #ffffff;
+    }
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero img {
+      max-width: 300px;
+      margin-bottom: 1em;
+    }
+    .hero h1 {
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+    }
+    .hero p {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 1.5em;
+    }
+    .cta-button {
+      padding: 0.9em 1.6em;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .steps, .benefits {
+      max-width: 960px;
+      margin: 3em auto;
+      padding: 0 1em;
+    }
+
+    .steps h2, .benefits h2 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .step-grid, .benefit-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+    }
+
+    .step, .benefit {
+      background-color: #fff;
+      padding: 1.2em;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .step strong, .benefit strong {
+      display: block;
+      margin-bottom: 0.3em;
+      color: #0077cc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em 1em;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @media(min-width: 700px) {
+      .step-grid, .benefit-grid {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .step, .benefit {
+        width: 30%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <img src="logo.svg" alt="paymaxed Logo" class="logo">
-      <h1>Maximiere deinen Marktwert</h1>
-      <p>Erhalte anonym und kostenlos individuelle Gehaltsangebote von Unternehmen in deiner Region.</p>
-      <a href="step-beruf.php" class="cta-button">Jetzt starten</a>
+
+  <header>
+    <div class="hero">
+      <img src="illustration-bewerber-angebote.svg" alt="Illustration Bewerber und Unternehmen" />
+      <h1>Erhalte dein persönliches Gehaltsangebot</h1>
+      <p>Anonym, kostenlos & innerhalb von 48h – direkt von Unternehmen in deiner Region.</p>
+      <a href="step-beruf.php" class="cta-button">Jetzt Gehaltsangebote einholen</a>
     </div>
-    <img src="illustration.svg" class="hero-illustration" alt="Illustration">
   </header>
+
+  <section class="steps">
+    <h2>So funktioniert’s</h2>
+    <div class="step-grid">
+      <div class="step">
+        <strong>1. Beruf & Standort eingeben</strong>
+        Wir benötigen nur deinen Beruf, deine Qualifikation & deinen Wunschstandort.
+      </div>
+      <div class="step">
+        <strong>2. Gehaltsangebote erhalten</strong>
+        Unternehmen senden dir innerhalb von 48 Stunden ein Angebot – 100 % anonym.
+      </div>
+      <div class="step">
+        <strong>3. Du entscheidest</strong>
+        Vergleiche Angebote mit Benefits und nimm Kontakt auf, wenn du möchtest.
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <h2>Deine Vorteile</h2>
+    <div class="benefit-grid">
+      <div class="benefit">
+        <strong>🔒 Anonymität garantiert</strong>
+        Keine persönlichen Daten für Unternehmen sichtbar – du behältst die Kontrolle.
+      </div>
+      <div class="benefit">
+        <strong>⚡ Schnelle Rückmeldung</strong>
+        Innerhalb von 48 Stunden erhältst du passende Angebote.
+      </div>
+      <div class="benefit">
+        <strong>💰 Gehaltstransparenz</strong>
+        Vergleichbare Angebote direkt von Unternehmen – ohne Bewerbungsaufwand.
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>© 2025 paymaxed – Alle Rechte vorbehalten</p>
+    © 2025 MeinGehaltsvergleich.de – Alle Rechte vorbehalten
   </footer>
+
 </body>
 </html>
