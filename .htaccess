@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Zugang nur für Entwickler"
+AuthUserFile /homepages/12/d123456789/htdocs/.htpasswd
+Require valid-user
