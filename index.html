@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>MeinGehaltsvergleich.de</title>
+  <title>MeinGehaltsvergleich.de – Erhalte dein Gehaltsangebot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -11,69 +11,89 @@
       background-color: #f8f9fa;
       color: #333;
     }
+
     header {
-      padding: 2em 1em;
-      text-align: center;
+      padding: 1em;
       background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
+
+    .logo {
+      max-width: 220px;
+      margin-bottom: 1em;
+    }
+
     .hero {
       max-width: 960px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .hero img {
-      max-width: 300px;
-      margin-bottom: 1em;
-    }
-    .hero h1 {
-      font-size: 1.8em;
-      margin-bottom: 0.5em;
-    }
-    .hero p {
-      font-size: 1.1em;
-      color: #666;
-      margin-bottom: 1.5em;
-    }
-    .cta-button {
-      padding: 0.9em 1.6em;
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1em;
+      text-align: center;
+      padding-bottom: 2em;
     }
 
-    .steps, .benefits {
+    .hero h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      color: #005fa3;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 1.5em;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.9em 1.6em;
+      border-radius: 6px;
+      font-size: 1em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #005fa3;
+    }
+
+    section {
       max-width: 960px;
       margin: 3em auto;
       padding: 0 1em;
     }
 
-    .steps h2, .benefits h2 {
+    section h2 {
       text-align: center;
-      margin-bottom: 1em;
+      font-size: 1.6em;
+      margin-bottom: 1.5em;
+      color: #005fa3;
     }
 
-    .step-grid, .benefit-grid {
+    .step-grid,
+    .benefit-grid {
       display: flex;
       flex-direction: column;
       gap: 1.5em;
     }
 
-    .step, .benefit {
+    .step,
+    .benefit {
       background-color: #fff;
       padding: 1.2em;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    .step strong, .benefit strong {
+    .step strong,
+    .benefit strong {
       display: block;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.4em;
       color: #0077cc;
     }
 
@@ -85,11 +105,14 @@
     }
 
     @media(min-width: 700px) {
-      .step-grid, .benefit-grid {
+      .step-grid,
+      .benefit-grid {
         flex-direction: row;
         justify-content: space-between;
       }
-      .step, .benefit {
+
+      .step,
+      .benefit {
         width: 30%;
       }
     }
@@ -98,8 +121,8 @@
 <body>
 
   <header>
+    <img src="logo.png" alt="MeinGehaltsvergleich.de Logo" class="logo">
     <div class="hero">
-      <img src="illustration-bewerber-angebote.svg" alt="Illustration Bewerber und Unternehmen" />
       <h1>Erhalte dein persönliches Gehaltsangebot</h1>
       <p>Anonym, kostenlos & innerhalb von 48h – direkt von Unternehmen in deiner Region.</p>
       <a href="step-beruf.php" class="cta-button">Jetzt Gehaltsangebote einholen</a>
