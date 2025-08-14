@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Kontakt – MeinGehaltsvergleich.de</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 2em auto; padding: 0 1em; }
+    h1 { color: #0078d4; }
+    form { display: flex; flex-direction: column; gap: 1em; }
+    input, textarea { padding: 0.8em; border: 1px solid #ccc; border-radius: 5px; }
+    button { background-color: #0078d4; color: white; border: none; padding: 0.8em; cursor: pointer; border-radius: 5px; }
+    button:hover { background-color: #005fa3; }
+  </style>
+</head>
+<body>
+  <h1>Kontakt</h1>
+  <p>Du hast Fragen oder möchtest uns Feedback geben? Nutze einfach das Formular oder kontaktiere uns direkt.</p>
+
+  <form action="kontakt-senden.php" method="post">
+    <input type="text" name="name" placeholder="Dein Name" required>
+    <input type="email" name="email" placeholder="Deine E-Mail" required>
+    <textarea name="nachricht" rows="5" placeholder="Deine Nachricht" required></textarea>
+    <button type="submit">Nachricht senden</button>
+  </form>
+
+  <p style="margin-top:2em;"><strong>E-Mail:</strong> kontakt@meingehaltsvergleich.de</p>
+  <p><strong>Telefon:</strong> 01234 / 567890</p>
+
+  <p><a href="index.html">Zurück zur Startseite</a></p>
+</body>
+</html>
